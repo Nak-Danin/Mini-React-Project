@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSquare,
+  faSquareCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import BackBtn from "./BackBtn";
 const ToDoList = () => {
   const [tasks, setTasks] = useState([
     "Wake up early",
@@ -10,7 +14,7 @@ const ToDoList = () => {
   const [newTask, setNewTask] = useState("");
   const [completionStatus, setCompletionStatus] = useState(
     // new Array(tasks.length).fill(false)
-    () => tasks.map((_,i) => i === 0) //first index true others false because i = [0,1,2]
+    () => tasks.map((_, i) => i === 0) //first index true others false because i = [0,1,2]
   );
   function handleChange(e) {
     setNewTask(e.target.value);
@@ -68,6 +72,7 @@ const ToDoList = () => {
     tasks.length > 0 && completionStatus.every((status) => status);
   return (
     <div className="h-screen bg-blue-200 flex items-center justify-center">
+      <BackBtn/>
       <div className="flex flex-col lg:w-[800px] md:w-[700px] w-[350px] bg-purple-500 py-5 rounded-[20px] items-center justify-center border-2 border-black">
         <h1 className="lg:text-[40px] md:text-[40px] text-[30px] text-white font-serif">
           To-Do List
@@ -125,7 +130,9 @@ const ToDoList = () => {
               ))}
             </ul>
           ) : (
-            <h1 className="lg:text-[25px] md:text-[25px] text-[20px] text-black font-semibold">No task found</h1>
+            <h1 className="lg:text-[25px] md:text-[25px] text-[20px] text-black font-semibold">
+              No task found
+            </h1>
           )}
           {allTaskDone && (
             <h1 className="lg:text-[30px] md:text-[25px] text-white text-center">

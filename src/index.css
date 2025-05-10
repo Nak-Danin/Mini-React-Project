@@ -1,4 +1,4 @@
 @import "tailwindcss";
 .btn{
-    @apply border-2 border-black py-1 rounded-[5px] hover:cursor-pointer
+    @apply border-2 py-1 rounded-[5px] hover:cursor-pointer
 }
